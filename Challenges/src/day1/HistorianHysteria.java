@@ -1,9 +1,6 @@
 package day1;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 
 public class HistorianHysteria {
@@ -13,9 +10,17 @@ public class HistorianHysteria {
         List<Integer> rightNumbers = new ArrayList<Integer>(Arrays.asList(4, 3, 5, 3, 9, 3));
         Collections.sort(leftNumbers);
         Collections.sort(rightNumbers);
-        String inputTitle = "HistorianHysteriaInput.txt";
 
-        getSumOfDistances(leftNumbers, rightNumbers);
+        //Read the input file
+        String inputTitle = "HistorianHysteriaInput.txt";
+        List<Integer> input = readFile(inputTitle);
+        List<Integer> leftSide = separateInputLocations(input, true);
+        List<Integer> rightSide = separateInputLocations(input, false);
+        Collections.sort(leftSide);
+        Collections.sort(rightSide);
+
+        //Solution
+        System.out.println(getSumOfDistances(leftSide, rightSide));
     }
 
     //Have to sort the arrays
@@ -24,19 +29,12 @@ public class HistorianHysteria {
         int sumOfDistances = 0;
         for (int i = 0; i < leftNumbers.size(); i++) {
             sumOfDistances += Math.abs(leftNumbers.get(i) - rightNumbers.get(i));
-            System.out.println(sumOfDistances);
         }
         return sumOfDistances;
     }
 
     //Have to read the txt input file
     public static List<Integer> readFile(String input) {
-        /*List<String> locations = new ArrayList<>();
-        try {
-            locations = Files.readAllLines(Paths.get(input));
-        } catch (IOException e) {
-            System.err.println("Can not read file");
-        }*/
         List<Integer> locations = new ArrayList<>();
         try {
             Scanner scan = new Scanner(new File(input));
