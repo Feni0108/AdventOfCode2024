@@ -1,12 +1,10 @@
 package day1;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class HistorianHysteria {
     public static void main(String[] args) {
@@ -15,9 +13,9 @@ public class HistorianHysteria {
         List<Integer> rightNumbers = new ArrayList<Integer>(Arrays.asList(4, 3, 5, 3, 9, 3));
         Collections.sort(leftNumbers);
         Collections.sort(rightNumbers);
+        String inputTitle = "HistorianHysteriaInput.txt";
 
         getSumOfDistances(leftNumbers, rightNumbers);
-        System.out.println(readFile("HistorianHysteriaInput.txt"));
     }
 
     //Have to sort the arrays
@@ -32,13 +30,39 @@ public class HistorianHysteria {
     }
 
     //Have to read the txt input file
-    public static List<String> readFile(String input) {
-        List<String> locations = new ArrayList<>();
+    public static List<Integer> readFile(String input) {
+        /*List<String> locations = new ArrayList<>();
         try {
             locations = Files.readAllLines(Paths.get(input));
         } catch (IOException e) {
             System.err.println("Can not read file");
+        }*/
+        List<Integer> locations = new ArrayList<>();
+        try {
+            Scanner scan = new Scanner(new File(input));
+
+            while (scan.hasNext()) {
+                locations.add(scan.nextInt());
+            }
+            scan.close();
+        } catch(Exception e) {
+            System.out.println("Can not read file");
         }
         return locations;
+    }
+
+    //Need a method which separates the two lists
+    public static List<Integer> separateInputLocations(List<Integer> locations, boolean direction) {
+        List<Integer> oneSide = new ArrayList<Integer>();
+        if(direction) {
+            for (int i = 0; i < locations.size(); i+=2) {
+                oneSide.add(locations.get(i));
+            }
+        } else {
+            for (int i = 1; i < locations.size(); i+=2) {
+                oneSide.add(locations.get(i));
+            }
+        }
+        return oneSide;
     }
 }
