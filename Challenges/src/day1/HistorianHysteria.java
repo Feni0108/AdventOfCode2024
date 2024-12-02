@@ -12,6 +12,7 @@ public class HistorianHysteria {
         Collections.sort(rightNumbers);
 
         //Read the input file
+
         String inputTitle = "HistorianHysteriaInput.txt";
         List<Integer> input = readFile(inputTitle);
         List<Integer> leftSide = separateInputLocations(input, true);
