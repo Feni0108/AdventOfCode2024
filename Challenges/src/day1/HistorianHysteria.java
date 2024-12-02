@@ -16,11 +16,14 @@ public class HistorianHysteria {
         List<Integer> input = readFile(inputTitle);
         List<Integer> leftSide = separateInputLocations(input, true);
         List<Integer> rightSide = separateInputLocations(input, false);
-        Collections.sort(leftSide);
-        Collections.sort(rightSide);
+        //Second puzzle
+        //Collections.sort(leftSide);
+        //Collections.sort(rightSide);
 
-        //Solution
+        //Solution first puzzle
         System.out.println(getSumOfDistances(leftSide, rightSide));
+        //Solution second puzzle
+        System.out.println(sumMultiplications(leftSide, rightSide));
     }
 
     //Have to sort the arrays
@@ -62,5 +65,21 @@ public class HistorianHysteria {
             }
         }
         return oneSide;
+    }
+
+    //Method which counts a specific value's occurrence in a list
+    public static int countOccurrence(List<Integer> locations, int numberToCount) {
+        return (int) locations.stream()
+                .filter(o -> o  == numberToCount)
+                .count();
+    }
+
+    //Method which multiplies the number with its occurrence in the right list
+    public static int sumMultiplications(List<Integer> leftList, List<Integer> rightList) {
+        int sum = 0;
+        for (int number: leftList) {
+            sum += (number * countOccurrence(rightList, number));
+        }
+        return sum;
     }
 }
