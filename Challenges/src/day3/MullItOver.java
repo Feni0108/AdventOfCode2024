@@ -25,6 +25,12 @@ public class MullItOver {
         int sum = multiplications.stream()
                         .reduce(0, Integer::sum);
         System.out.println(sum);
+
+        //Second puzzle
+        List<Integer> dos = findDosIndexes(wholeMemory);
+        List<Integer> donts = findDontsIndexes(wholeMemory);
+        System.out.println(dos);
+        System.out.println(donts);
     }
 
     //Parse string numbers and make multiplications
@@ -57,6 +63,28 @@ public class MullItOver {
             withoutCorruptedMemory.add(matcher.group());
         }
         return withoutCorruptedMemory;
+    }
+
+    //Second puzzle method only gets methods after do() and avoids method after don't()
+    public static List<Integer> findDosIndexes(String memory) {
+        List<Integer> dosIndexes = new ArrayList<>();
+        Pattern pattern = Pattern.compile("do\\(\\)", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(memory);
+        while(matcher.find()) {
+            dosIndexes.add(matcher.start());
+        }
+        return dosIndexes;
+    }
+
+    //Second puzzle method only gets methods after do() and avoids method after don't()
+    public static List<Integer> findDontsIndexes(String memory) {
+        List<Integer> dontsIndexes = new ArrayList<>();
+        Pattern pattern = Pattern.compile("don't\\(\\)", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(memory);
+        while(matcher.find()) {
+            dontsIndexes.add(matcher.start());
+        }
+        return dontsIndexes;
     }
 
     //Read file to a string

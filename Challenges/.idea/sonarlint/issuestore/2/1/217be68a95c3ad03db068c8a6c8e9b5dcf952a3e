@@ -1,0 +1,23 @@
+
+>
+java:S1643/"Use a StringBuilder instead.(ùÂ›•ıÿÿÿÿ8ûËï¹2
+>
+java:S16431"Use a StringBuilder instead.(‘§ŠÂıÿÿÿÿ8ûËï¹2
+9
+java:S1643a"Use a StringBuilder instead.(µÖ­Û8ûËï¹2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(—Œ¿øÿÿÿÿ8¦ûËï¹2
+j
+java:S2095^"HUse try-with-resources or close this "FileReader" in a "finally" clause.(Šª€òúÿÿÿÿ8“üìï¹2
+^
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(ñÛ”Ùüÿÿÿÿ8ÊÌï¹2
+^
+java:S6353"<Use concise character class syntax '\\d' instead of '[0-9]'.(ñÛ”Ùüÿÿÿÿ8ÊÌï¹2
+F	java:S106"+Replace this use of System.out by a logger.(Õƒã*8ÛÌï¹2
+G	java:S106"+Replace this use of System.out by a logger.(‚¨Ö§8æÌï¹2
+G	java:S106 "+Replace this use of System.out by a logger.(ğ ÔÂ8çÌï¹2
+G	java:S106!"+Replace this use of System.out by a logger.(Á¿ÔÇ8äüìï¹2
+^
+java:S6353<"<Use concise character class syntax '\\d' instead of '[0-9]'.(ñÛ”Ùüÿÿÿÿ8ˆ‚Ìï¹2
+^
+java:S6353<"<Use concise character class syntax '\\d' instead of '[0-9]'.(ñÛ”Ùüÿÿÿÿ8ˆ‚Ìï¹2
+L	java:S106e"+Replace this use of System.out by a logger.(êÓæøùÿÿÿÿ8Øµüï¹2

@@ -1,0 +1,34 @@
+
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÍÁ88ÈŠÂô¸2
+u
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÿŒ˜H8ÉŠÂô¸2
+u
+java:S2293i"YReplace the type specification in this constructor call with the diamond operator ("<>").(²µ¤{8ÉŠÂô¸2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ß’Š•øÿÿÿÿ8ÏŠÂô¸2
+a
+java:S2095l"DUse try-with-resources or close this "Stream" in a "finally" clause.(°ü¢â8§‹Âô¸2
+U
+java:S1854"9Remove this useless assignment to local variable "level".(ÍÁ88·‹Âô¸2
+F
+java:S1481"*Remove this unused "level" local variable.(ÍÁ88¼‹Âô¸2
+G	java:S106"+Replace this use of System.out by a logger.(æÅ¡ò8½‹Âô¸2
+L	java:S106"+Replace this use of System.out by a logger.(·àšøÿÿÿÿ8¾‹Âô¸2
+G	java:S106!"+Replace this use of System.out by a logger.(²·Á¨8À‹Âô¸2
+n
+java:S1871)"LThis branch's code block is the same as the block for the branch on line 39.(àçŸ¥üÿÿÿÿ8Æ‹Âô¸2
+F
+java:S54135")Verify that "remove()" is used correctly.(ÚÌù¼8É‹Âô¸2
+c
+java:S1126<"AReplace this if-then-else statement by a single return statement.(×“™ãıÿÿÿÿ8Ë‹Âô¸2
+n
+java:S1871I"LThis branch's code block is the same as the block for the branch on line 71.(ÜÚ¹øÿÿÿÿÿ8Ğ‹Âô¸2
+n
+java:S1871U"LThis branch's code block is the same as the block for the branch on line 83.(ÜÚ¹øÿÿÿÿÿ8Õ‹Âô¸2
+o
+java:S6204p"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8Ü‹Âô¸2
+o
+java:S6204o"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(äÒˆ8İ‹Âô¸2
+L	java:S106r"+Replace this use of System.out by a logger.(äüÓøøÿÿÿÿ8à‹Âô¸2
+>
+java:S1116r"Remove this empty statement.(äüÓøøÿÿÿÿ8à‹Âô¸2
