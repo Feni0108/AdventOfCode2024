@@ -36,13 +36,15 @@ public class CeresSearch {
 
     public static List<String> inputGrid = readGridFromInput("day4input.txt");
 
+    public static List<String> secondPartExampleGrid = new ArrayList<>(List.of(".M.S......", "..A..MSMS.", ".M.S.MAA..", "..A.ASMSM.", ".M.S.M....", "..........", "S.S.S.S.S.", ".A.A.A.A..", "M.M.M.M.M."));
+
     public static int inputGridRowLength = inputGrid.size();
     public static int inputGridColumnLength = inputGrid.get(0).length();
 
     public static void main(String[] args) {
-        System.out.println("All Xmas occurrences in the example:");
+       /* System.out.println("All Xmas occurrences in the example:");
 
-        List<int[]> coordinatesX = findXs(inputGrid);
+        List<int[]> coordinatesX = findACharCoordinate(inputGrid, 'X');
         int result = 0;
 
         for (int i = 0; i < coordinatesX.size(); i++) {
@@ -50,18 +52,30 @@ public class CeresSearch {
         }
 
         System.out.println(result);
+*/
+        System.out.println("Find the coordinates of every A");
 
-        System.out.println(inputGrid);
+        List<int[]> coordinatesA = findACharCoordinate(inputGrid, 'A');
+
+        int secondResult = 0;
+
+        for (int i = 0; i < coordinatesA.size(); i++) {
+            if (checkOneDiagonal(coordinatesA.get(i), -1, -1, 1, 1) && checkOneDiagonal(coordinatesA.get(i), 1, -1, -1, 1)) {
+                secondResult++;
+            }
+        }
+
+        System.out.println("Second result: " + secondResult);
     }
 
-    // We need a method which finds all the X character coordinates and saves it in a list
-    public static List<int[]> findXs(List<String> grid) {
+    // We need a method which finds all the given character coordinates and saves it in a list
+    public static List<int[]> findACharCoordinate(List<String> grid, char toFind) {
         List<int[]> coordinatesX = new ArrayList<int[]>();
 
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).length(); j++) {
                 int[] oneXCoordinate = new int[2];
-                if (grid.get(i).charAt(j) == 'X') {
+                if (grid.get(i).charAt(j) == toFind) {
                     oneXCoordinate[0] = i;
                     oneXCoordinate[1] = j;
                     coordinatesX.add(oneXCoordinate);
@@ -120,5 +134,31 @@ public class CeresSearch {
             System.out.println("Can not read file");;
         }
         return rows;
+    }
+
+    // SECOND PART
+
+    // Providing the directions in the parameters, this function checks if along the diagonal in the two different direction
+    // one character must be M and in the other direction must be S.
+    public static boolean checkOneDiagonal(int[] coordinate, int upperDirX, int upperDirY, int bottomDirX, int bottomDirY) {
+        int x = coordinate[0];
+        int y = coordinate[1];
+
+        int upperDirectionX = x + upperDirX;
+        int upperDirectionY = y + upperDirY;
+
+        int downDirectionX = x + bottomDirX;
+        int downDirectionY = y + bottomDirY;
+
+        if (upperDirectionX >= 0 && upperDirectionX < inputGridRowLength && upperDirectionY >= 0 && upperDirectionY < inputGridColumnLength
+                && downDirectionX >= 0 && downDirectionX < inputGridRowLength && downDirectionY >= 0 && downDirectionY < inputGridColumnLength) {
+            char topRight = inputGrid.get(upperDirectionX).charAt(upperDirectionY);
+            char downRight = inputGrid.get(downDirectionX).charAt(downDirectionY);
+            if ((topRight == 'M' && downRight == 'S') || (topRight == 'S' && downRight == 'M')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
